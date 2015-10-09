@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="css/calendar.css" type="text/css" media="screen" />
+		<script type="text/javascript" src="js/mustache.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script type="text/javascript" src="https://addthisevent.com/libs/ate-latest.min.js"></script>
+		<script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1','packages':['corechart']}]}"></script>
+		<script type="text/javascript">
+
+		addthisevent.settings({
+			license    : "replace-with-your-licensekey",
+			css        : false,
+			outlook    : {show:true, text:"Outlook"},
+			google     : {show:true, text:"Google <em>(online)</em>"},
+			yahoo      : {show:true, text:"Yahoo <em>(online)</em>"},
+			outlookcom : {show:true, text:"Outlook.com <em>(online)</em>"},
+			appleical  : {show:true, text:"Apple Calendar"},
+			dropdown   : {order:"appleical,google,outlook,outlookcom,yahoo"}
+		});
+		</script>
+		<script type="text/javascript" src="js/main.js"></script>
+	</head>
+<body>
+
+	<table id="codeforces" width=75%>
+		<tr>
+			<th>Name</th>
+			<th>Date</th>
+			<th>Duration</th>
+			<th>Add to Calendar</th>
+		</tr>
+	</table>
+
+	<script id="codeforces-template" type="x-tmpl-mustache">
+		<div title="Add to Calendar" class="addthisevent">
+				<img src="images/icon-calendar-t1.png" alt="" />
+				<span class="title">{{name}}</span>
+				<span class="start">{{startDateTime}}</span>
+				<span class="end">{{endDateTime}}</span>
+				<span class="timezone">Asia/Kolkata</span>
+				<span class="all_day_event">false</span>
+				<span class="date_format">MM/DD/YYYY</span>
+		</div>
+	</script>
+
+</body>
+</html>
