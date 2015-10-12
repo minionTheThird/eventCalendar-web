@@ -2,6 +2,7 @@ $(document).ready(
     function()
     {
         getCodeforcesEvents();
+        getHackerEarthEvents();
     }
 );
 
@@ -61,7 +62,7 @@ function getCodeforcesEvents()
                     l_date.innerHTML = start_date.DATE;//start_date.toLocaleString();
                     l_duration.innerHTML = durationHours +"h "+durationMinutes+"m";
 
-                    var template = $('#codeforces-template').html();
+                    var template = $('#calendar-template').html();
                     Mustache.parse(template);   // optional, speeds up future uses
                     var rendered = Mustache.render(
                                       template,
@@ -74,6 +75,36 @@ function getCodeforcesEvents()
 
                   }
                  };
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log("error for : " + this.handle)
+            }
+
+        });
+}
+
+function getHackerEarthEvents()
+{
+        var inputHTML = "";
+        var calendarId = 'hackerearth.com_73f0o8kl62rb5v1htv19p607e4@group.calendar.google.com'
+        var startTime = new Date();
+        var endTime = new Date();
+        endTime.setDate(endTime.getDate()+7);
+        var URL = 'https://www.googleapis.com/calendar/v3/calendars/'+calendarId+'/events?timeMax='+endTime.toISOString()+'&timeMin='+startTime.toISOString();
+        console.log(calendarId);
+        console.log(startTime);
+        console.log(endTime);
+        console.log(URL);
+        $.ajax({
+            url: URL,
+            dataType: 'JSONP',
+            data : {
+                jsonp:"callback",
+            },
+            jsonpCallback: 'callback',
+            type: 'GET',
+            success: function (data1) {
+                document.getElementById("hackerEarth").innerHTML = JSON.stringify(data1);
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 console.log("error for : " + this.handle)
