@@ -24,16 +24,7 @@
 	</head>
 <body>
 
-	<table id="codeforces" width=75%>
-		<tr>
-			<th>Name</th>
-			<th>Date</th>
-			<th>Duration</th>
-			<th>Add to Calendar</th>
-		</tr>
-	</table>
-
-	<table id="codeChef" width=75%>
+	<table id="CodeForces" width=75%>
 		<tr>
 			<th>Name</th>
 			<th>Start Date</th>
@@ -42,7 +33,16 @@
 		</tr>
 	</table>
 
-	<table id="hackerEarth" width=75%>
+	<table id="CodeChef" width=75%>
+		<tr>
+			<th>Name</th>
+			<th>Start Date</th>
+			<th>End Date</th>
+			<th>Add to Calendar</th>
+		</tr>
+	</table>
+
+	<table id="HackerEarth" width=75%>
 		<tr>
 			<th>Name</th>
 			<th>Start Date</th>
@@ -52,15 +52,20 @@
 	</table>
 
 	<script id="calendar-template" type="x-tmpl-mustache">
-		<div title="Add to Calendar" class="addthisevent">
-				<img src="images/icon-calendar-t1.png" alt="" />
-				<span class="title">{{name}}</span>
-				<span class="start">{{startDateTime}}</span>
-				<span class="end">{{endDateTime}}</span>
-				<span class="timezone">Asia/Kolkata</span>
-				<span class="all_day_event">false</span>
-				<span class="date_format">MM/DD/YYYY</span>
-		</div>
+		<td>{{name}}</td>
+		<td>{{startDate}}</td>
+		<td>{{endDate}}</td>
+		<td>
+			<div title="Add to Calendar" class="addthisevent">
+					<img src="images/icon-calendar-t1.png" alt="" />
+					<span class="title">{{name}}</span>
+					<span class="start">{{startDateTime}}</span>
+					<span class="end">{{endDateTime}}</span>
+					<span class="timezone">Asia/Kolkata</span>
+					<span class="all_day_event">false</span>
+					<span class="date_format">MM/DD/YYYY</span>
+			</div>
+		</td>
 	</script>
 
 </body>
